@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>2つずつ増えるcomponents</title>
+  <style>
+    body {
+      font-family: monospace;
+      background: #f4f4f4;
+      padding: 2rem;
+    }
+    .folder {
+      cursor: pointer;
+      font-weight: bold;
+      margin: 4px 0;
+    }
+    .nested {
+      display: none;
+      margin-left: 1.5rem;
+    }
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h2>project-root/</h2>
+
+<div class="folder" onclick="toggle('src')">📁 src/</div>
+<div id="src" class="nested">
+
+  <div class="folder" onclick="toggle('c1a')">📁 components/</div>
+  <div id="c1a" class="nested">
+    <div class="folder" onclick="toggle('c2a')">📁 components/</div>
+    <div id="c2a" class="nested">
+      <div class="folder" onclick="toggle('c3a')">📁 components/</div>
+      <div id="c3a" class="nested">
+        <p>...さらに続く</p>
+      </div>
+      <div class="folder" onclick="toggle('c3b')">📁 components/</div>
+      <div id="c3b" class="nested">
+        <p>...さらに続く</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="folder" onclick="toggle('c1b')">📁 components/</div>
+  <div id="c1b" class="nested">
+    <div class="folder" onclick="toggle('c2b')">📁 components/</div>
+    <div id="c2b" class="nested">
+      <div class="folder" onclick="toggle('c3c')">📁 components/</div>
+      <div id="c3c" class="nested">
+        <p>...さらに続く</p>
+      </div>
+      <div class="folder" onclick="toggle('c3d')">📁 components/</div>
+      <div id="c3d" class="nested">
+        <p>...さらに続く</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggle(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
